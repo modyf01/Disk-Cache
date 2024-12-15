@@ -8,8 +8,8 @@ import numpy as np
 import pandas as pd
 
 
-class DiskCache:
-    def __init__(self, cache_dir: str = ".disk_cache", maxsize: int = None):
+class MatrixDiskCache:
+    def __init__(self, cache_dir: str = ".matrix_disk_cache", maxsize: int = None):
         """
         Initialize the DiskCache.
 
@@ -77,7 +77,7 @@ class DiskCache:
             while len(cache_files) > self.maxsize:
                 os.remove(cache_files.pop(0))
 
-    def cache(self, func: Callable) -> Callable:
+    def disk_cache(self, func: Callable) -> Callable:
         """
         Decorator to cache a function's result on disk.
 
