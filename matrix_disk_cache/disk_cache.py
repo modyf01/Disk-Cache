@@ -77,7 +77,7 @@ class MatrixDiskCache:
             while len(cache_files) > self.maxsize:
                 os.remove(cache_files.pop(0))
 
-    def disk_cache(self, func: Callable) -> Callable:
+    def cache(self, func: Callable) -> Callable:
         """
         Decorator to cache a function's result on disk.
 

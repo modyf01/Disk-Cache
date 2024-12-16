@@ -7,7 +7,7 @@ from matrix_disk_cache import MatrixDiskCache
 def test_cache_basic():
     cache = MatrixDiskCache(cache_dir=".test_cache")
 
-    @cache.disk_cache
+    @cache.cache
     def add(a, b):
         return a + b
 
@@ -19,7 +19,7 @@ def test_cache_basic():
 def test_cache_numpy():
     cache = MatrixDiskCache(cache_dir=".test_cache")
 
-    @cache.disk_cache
+    @cache.cache
     def process(arr):
         return arr.mean()
 
@@ -33,7 +33,7 @@ def test_cache_numpy():
 def test_cache_pandas():
     cache = MatrixDiskCache(cache_dir=".test_cache")
 
-    @cache.disk_cache
+    @cache.cache
     def process(series):
         return series.sum()
 
@@ -47,7 +47,7 @@ def test_cache_pandas():
 def test_cache_random_matrix_numpy():
     cache = MatrixDiskCache(cache_dir=".test_cache")
 
-    @cache.disk_cache
+    @cache.cache
     def generate_matrix(rows, cols, first_row):
         data = np.random.rand(rows, cols)
         data[0] = first_row
@@ -65,7 +65,7 @@ def test_cache_random_matrix_numpy():
 def test_cache_random_matrix_pandas():
     cache = MatrixDiskCache(cache_dir=".test_cache")
 
-    @cache.disk_cache
+    @cache.cache
     def generate_matrix(rows, cols, first_row):
         data = np.random.rand(rows, cols)
         data[0] = first_row
@@ -83,7 +83,7 @@ def test_cache_random_matrix_pandas():
 def test_cache_dataframe_sum_pandas():
     cache = MatrixDiskCache(cache_dir=".test_cache")
 
-    @cache.disk_cache
+    @cache.cache
     def sum_dataframe(df):
         return df.values.sum()
 
@@ -103,7 +103,7 @@ def test_cache_dataframe_sum_pandas():
 def test_cache_matrix_sum_numpy():
     cache = MatrixDiskCache(cache_dir=".test_cache")
 
-    @cache.disk_cache
+    @cache.cache
     def sum_matrix(arr):
         return arr.sum()
 
